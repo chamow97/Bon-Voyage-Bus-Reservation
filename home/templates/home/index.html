@@ -9,6 +9,7 @@ class="activePage"
 {% block homelink %}'../home' {% endblock %}
 {% block aboutlink %}'about' {% endblock %}
 {% block bookinglink %}'login_user' {% endblock %}
+{% block logoutlink %}'logout_user' {% endblock %}
 <!--{% load static %}-->
 
 {% block content %}
@@ -61,8 +62,9 @@ class="activePage"
         <br /><br /><br />
         <div id="booking">
             <center>
-        <p id="bookTicket">Book your Tickets here! &nbsp &nbsp &nbsp &nbsp
-            <input class="bookButton" type="button" onclick="" value="Book">
+                <p id="bookTicket">Book your Tickets <a id="bookbutton" href="login_user">here!</a>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+
                 </center>
         </div>
         <br />

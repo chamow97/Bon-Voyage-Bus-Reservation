@@ -12,13 +12,17 @@
     <link rel="stylesheet" href="{% static 'home/common.css' %}">
     <link rel="stylesheet" href="{% static 'home/register.css' %}">
     <link rel="stylesheet" href="{% static 'home/about.css' %}">
+    <link rel="stylesheet" href="{% static 'home/toastr.css' %}">
+
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Griffy" rel="stylesheet">
     <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{% static 'home/home.js' %}" > </script
+    <script type="text/javascript" src="{% static 'home/home.js' %}" > </script>
+     <script type="text/javascript" src="{% static 'home/toastr.js' %}" > </script>
+
     <script type="text/javascript" src="{% static 'home/about.js' %}" > </script>
     <script type="text/javascript" src="{% static 'home/maps.js' %}" > </script>
 
@@ -31,20 +35,25 @@
             </div>            </a>
 
         <div class="strip" >
-        	<a href={% block homelink %} {% endblock %} {% block homeactive %} {% endblock %}>Home</a>
+
+            {% if request.user.is_authenticated %}
+            {% endif %}
+             &nbsp
+            &nbsp
+        	<a id="links" href={% block homelink %} {% endblock %} {% block homeactive %} {% endblock %}>Home</a>
         	 &nbsp
             &nbsp
-            <a href={% block bookinglink %} {% endblock %} {% block bookingactive %} {% endblock %}>Booking</a>
+            <a  href={% block bookinglink %} {% endblock %} {% block bookingactive %} {% endblock %}>Booking</a>
             &nbsp
             &nbsp
 
-            <a href={% block aboutlink %} {% endblock %} {% block aboutactive %} {% endblock %}>About Us</a>
+            <a  href={% block aboutlink %} {% endblock %} {% block aboutactive %} {% endblock %}>About Us</a>
              &nbsp
             &nbsp
-            &nbsp
-            &nbsp
-            &nbsp
-            &nbsp
+
+            {% if request.user.is_authenticated %}
+               <a id="logoutbutton" href={% block logoutlink %} {% endblock %}>Logout</a>
+            {% endif %}
 
 
         </div>
@@ -60,7 +69,11 @@
         <br />
             <br /></div>
             <div id="content">
-        {% block content %}
+        {% if request.user.is_authenticated %}
+
+            <script id="toast">toastr.info('Welcome {{ user.username }} !!');</script>
+                {% endif %}
+                {% block content %}
 
 
         {% endblock %}
@@ -72,6 +85,7 @@
             <br />
             <center>
             <p>Created with <span id="unicode">&#9829;</span> by Mohammad Siddique and Chandramowli. <br><br> Write to us for any queries : <a link href=" http:\\mail.google.com">chamow97@hotmail.com</a></p>
+              
                 </center>
         </div>
     </body>

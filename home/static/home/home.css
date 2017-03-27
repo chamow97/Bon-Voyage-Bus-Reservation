@@ -26,19 +26,7 @@ body {
     font-weight: lighter;
     align-content: center;
 }
-.bookButton {
-                background-color: #19ff00;
-                padding: 14px 40px;
-                border-radius: 2px;
-                text-decoration: none;
-                text-align: center;
-                font-size: 20px;
-                font-family: sans-serif;
-                cursor: pointer;
-}
-.bookButton:hover {
-    box-shadow: 2px 2px #000000;
-}
+
 #bookTicket, .bookButton {
     font-family: 'Indie Flower', cursive;
 
