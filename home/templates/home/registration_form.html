@@ -1,0 +1,78 @@
+{% extends 'home/base.html' %}
+{% block title %}Register{% endblock %}
+{% block headinglink %}../../home {% endblock %}
+{% block homelink %}'../../home' {% endblock %}
+{% block aboutlink %}'about' {% endblock %}
+{% block bookinglink %}'login_user' {% endblock %}
+{% block content %}
+   <br />
+        <br /> <br />
+        <br /> <br />
+        <br /><br />
+        <br /> <br />
+        <br /> <br />
+        <br />
+
+<div class="container-fluid">
+
+    <div class="row">
+        <center>
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                        <span class="current">
+                            
+                            <div id="Reg">
+                    <h3 id="RegisterText">Register for an Account</h3>
+                                </div>
+                            </span>
+                         <div id="Register">
+
+                    {% if error_message %}
+
+
+                        <p><strong>{{ error_message }}</strong></p>
+
+                        {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <br>
+                        <br>
+                        <br>
+                        {% for field in form %}
+                        <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                        <span id="errormsg" class="text-danger large">{{ field.errors }}</span>
+                            </div>
+                            <label class="control-label col-sm-2" ><div id="fields">{{ field.label_tag }}</div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div id="box" class="col-sm-10">{{ field }}</div></label>
+
+                        </div>
+                        <br><br><br>
+
+                    {% endfor %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <br><br>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                                  <br><br><br>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel-footer">
+                     </div>
+            </div>
+        </div></div>
+            </center>
+    </div>
+
+
+<br><br><br>
+
+
+
+{% endblock %}
+

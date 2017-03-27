@@ -1,0 +1,72 @@
+{% extends 'home/base.html' %}
+{% block title %}
+Bon Voyage
+{% endblock %}
+{% block homeactive %}
+class="activePage"
+{% endblock %}
+{% block headinglink %}../home {% endblock %}
+{% block homelink %}'../home' {% endblock %}
+{% block aboutlink %}'about' {% endblock %}
+{% block bookinglink %}'login_user' {% endblock %}
+<!--{% load static %}-->
+
+{% block content %}
+<style>
+    body{
+        overflow: scroll;
+    }
+</style>
+<br />
+<style>
+        .slides {
+            display:none;
+        }
+    </style>
+         <br />
+        <br /> <br />
+        <br /> <br />
+        <br /><br />
+        <br /> <br />
+        <br /> <br />
+        <br />
+            <center>
+
+        <img class="slides" align width="80%" height="600px" src="{% static 'home/scene1.jpg' %}"/>
+        <img class="slides" width="80%" height="600px" src="{% static 'home/scene2.jpg' %}" />
+        <img class="slides" width="80%" height="600px" src="{% static 'home/scene4.jpg' %}" />
+        <img class="slides" width="80%" height="600px" src="{% static 'home/scene5.jpg' %}" />
+        <img class="slides" width="80%" height="600px" src="{% static 'home/scene6.jpg' %}" />
+        <img class="slides" width="80%" height="600px" src="{% static 'home/scene.jpg' %}"/>
+
+         </center>
+            <script>
+                var currentIndex = 0;
+                slideshow();
+                function slideshow() {
+                var loopVar;
+                var x = document.getElementsByClassName("slides");
+                for(loopVar = 0; loopVar < x.length; ++loopVar){
+                x[loopVar].style.display = "none";
+                }
+                ++currentIndex;
+                if(currentIndex > x.length) {
+                currentIndex = 1;
+                }
+                x[currentIndex - 1].style.display = "block";
+                var temp = x[currentIndex - 1];
+                setTimeout(slideshow, 3000);
+                }
+            </script>
+        <br /><br /><br />
+        <div id="booking">
+            <center>
+        <p id="bookTicket">Book your Tickets here! &nbsp &nbsp &nbsp &nbsp
+            <input class="bookButton" type="button" onclick="" value="Book">
+                </center>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+{% endblock %}

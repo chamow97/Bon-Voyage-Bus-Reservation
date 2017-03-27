@@ -1,0 +1,48 @@
+ul {
+    list-style-type: none;
+}
+ol {
+    list-style-type: none;
+}
+body {
+    margin: 0px 0px 0px 0px;
+    background-color: #ed8e91;
+    overflow:scroll;
+}
+
+.slides{
+    width: 80%;
+    height: 600px;
+    padding: 3px;
+    border: 3px solid #000000;
+    background-color: blueviolet;
+}
+#booking {
+    font-size: 30px;
+    background-color: #fffff;
+    width: 100%;
+    height: 150px;
+    font-family: "Spinnaker", sans-serif;
+    font-weight: lighter;
+    align-content: center;
+}
+.bookButton {
+                background-color: #19ff00;
+                padding: 14px 40px;
+                border-radius: 2px;
+                text-decoration: none;
+                text-align: center;
+                font-size: 20px;
+                font-family: sans-serif;
+                cursor: pointer;
+}
+.bookButton:hover {
+    box-shadow: 2px 2px #000000;
+}
+#bookTicket, .bookButton {
+    font-family: 'Indie Flower', cursive;
+
+    margin: 50px 0px 0px 0px;    
+}
+
+

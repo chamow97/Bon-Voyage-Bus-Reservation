@@ -1,0 +1,80 @@
+{% extends 'home/base.html' %}
+{% block title %}Log In{% endblock %}
+{% block login_active %}active{% endblock %}
+
+{% block headinglink %}../../home {% endblock %}
+{% block homelink %}'../../home' {% endblock %}
+{% block aboutlink %}'../about' {% endblock %}
+{% block bookinglink %}'../login_user' {% endblock %}
+{% block content %}
+<br />
+        <br /> <br />
+        <br /> <br />
+        <br /><br />
+        <br /> <br />
+        <br /> <br />
+        <br />
+<div class="container-fluid">
+    <center>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="Reg">
+                    <h3 id="RegisterText">Login</h3>
+                                </div>
+                    <div id="Register">
+                        <br>
+                        <br>
+                        <br>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="{% url 'home:login_user'%}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div id="fields"><label class="control-label col-sm-2"  for="id_username">
+                                Username:
+                                </label></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div id="box" class="col-sm-10">
+                                <input id="id_username" maxlength="30" name="username" type="text">
+                            </div>
+                              <br>
+                        <br>
+                        <br>
+                        </div>
+                        <div class="form-group">
+                           <div id="fields"> <label class="control-label col-sm-2" for="id_password">
+                                Password:
+                            </label></div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <div id="box" class="col-sm-10">
+                                <input id="id_password" maxlength="30" name="password" type="password">
+                            </div>
+                              <br>
+                        <br>
+                        <br>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                <br>
+                <div class="panel-footer">
+                    Don't have an account? <a href='../register'>Click here</a> to register.
+                    </div>
+                    <br><br><br><br>
+                </div>
+            </div>
+        </div>
+        </div>
+    </center>
+
+    </div>
+<br><br><br><br>
+
+{% endblock %}

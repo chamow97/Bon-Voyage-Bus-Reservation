@@ -1,0 +1,51 @@
+
+{% extends 'home/base.html' %}
+{% block aboutactive %}
+class="activePage"
+{% endblock %}
+{% block title %}
+About Us
+{% endblock %}
+{% block headinglink %}../../home {% endblock %}
+{% block homelink %}'../../home' {% endblock %}
+{% block aboutlink %}'../about' {% endblock %}
+{% block bookinglink %}'login_user' {% endblock %}
+{% block content %}
+{% load static %}
+   <br />
+        <br /> <br />
+        <br /> <br />
+        <br /><br />
+        <br /> <br />
+        <br /> <br />
+        <br />
+        <center>
+            <p id="maptext">Walk into our headquarters and get awed!</p>
+            
+        <div id="map">
+            <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkrFinhvgFr7r0U5kW093VaGbquBbxZSc&callback=initMap">
+        </script>
+        </div>
+            <div class="description">
+           <br />
+        <br />
+        <br>
+        <div id="whatwedo">
+            <p id="ourwork"> What are we best at?</p>
+            <p class="description">Bon-Voyage is a Bus Reservation system with great features and exciting offers. It is voted as <b>the most favourite Bus Reservation website of the year 2016</b>.</p>
+        </div>
+            <br />
+        <br />
+            <div id="whybest">
+            <p id="whyarewebest"> Why Bon Voyage?</p>
+                <p class="description">We always beat our competitors hands down.</p>
+                <iframe id="chart" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/15BD6MxokwYvmaNTl-Y-fkuQaXgz6IMvTajnBy0646TI/pubchart?oid=1610395081&amp;format=interactive"></iframe>
+            </div>
+                </div>
+                        <br />
+            <br />            <br />
+            <br />            <br />
+            <br />
+             </center>
+{% endblock %}

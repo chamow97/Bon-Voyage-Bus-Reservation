@@ -1,0 +1,36 @@
+#Register {
+background-color: #170244;
+width: 40%;
+color: #ffffff;
+
+}
+#Reg {
+background-color: #d0d6e0;
+width: 40%;
+height: 70px;
+}
+#RegisterText {
+font-family: 'Slabo 27px', serif;
+font-size: 28px;
+color: #ff1d00;
+text-align: center;
+padding-top: 20px;
+
+}
+#box {
+display: inline;
+}
+#errormsg {
+font-family: 'Roboto', sans-serif;
+font-size: 20px;
+}
+#fields {
+display:inline;
+font-family: 'Slabo 27px', serif;
+font-size: 20px;
+
+}
+.text-danger large {
+font-family: 'Slabo 27px', serif;
+
+}
