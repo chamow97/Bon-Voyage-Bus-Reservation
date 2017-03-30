@@ -1,34 +1,39 @@
 #Register {
-background-color: #170244;
+background-color: #ffffff;
 width: 40%;
 color: #ffffff;
 
+border: 0.5px solid #b5c9b7;
 }
 #Reg {
-background-color: #d0d6e0;
+background-color: #ffffff;
 width: 40%;
 height: 70px;
+border: 0.5px solid #b5c9b7;
 }
 #RegisterText {
-font-family: 'Slabo 27px', serif;
-font-size: 28px;
-color: #ff1d00;
+font-family: 'Roboto', sans-serif;
+font-size: 32px;
+color: #0ccc22;
 text-align: center;
-padding-top: 20px;
+padding-top: 5px;
+
 
 }
-#box {
+.box {
 display: inline;
+width: 80%;
+
 }
+
 #errormsg {
 font-family: 'Roboto', sans-serif;
 font-size: 20px;
 }
-#fields {
+.fields {
 display:inline;
 font-family: 'Slabo 27px', serif;
 font-size: 20px;
-
 }
 .text-danger large {
 font-family: 'Slabo 27px', serif;

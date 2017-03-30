@@ -71,7 +71,13 @@
             <div id="content">
         {% if request.user.is_authenticated %}
 
-            <script id="toast">toastr.info('Welcome {{ user.username }} !!');</script>
+            <script id="toast">
+
+            $(document).ready(function() {
+             toastr.info('Welcome {{ user.username }} !!');
+         });
+
+            </script>
                 {% endif %}
                 {% block content %}
 
@@ -84,8 +90,8 @@
             <br />
             <br />
             <center>
-            <p>Created with <span id="unicode">&#9829;</span> by Mohammad Siddique and Chandramowli. <br><br> Write to us for any queries : <a link href=" http:\\mail.google.com">chamow97@hotmail.com</a></p>
-              
+            <p>Created with <span id="unicode">&#9829;</span> by Mohamed Siddique and Chandramowli. <br><br> Write to us for any queries : <a link href=" http:\\mail.google.com">chamow97@hotmail.com</a></p>
+
                 </center>
         </div>
     </body>
