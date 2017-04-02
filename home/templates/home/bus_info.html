@@ -12,13 +12,75 @@ Booking
 {% block bookinglink %}'../login_user' {% endblock %}
 {% block logoutlink %}'../logout_user' {% endblock %}
 {% block bus_info %}
-
 <script>
-</script>
-{% for item in buses %}
-{% if item.source  == "Pune" %}
-<p>{{ item.source }}</p>
-{% endif %}
-{% endfor %}
+var from;
+var to;
+var counter = 0;
+var queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+var queries = queryString.split("&");
+for (var i = 0; i < queries.length; i++)
+{
+if(i == 0)
+{
+from = queries[i].substring('para1='.length);
+}
+else
+{
+to = queries[i].substring('para1='.length);
+}
 
-{% endblock %}
+}
+
+</script>
+<center><p><div class="busesList">Search Results!!</div></p>
+   </center>
+<br><br><br>
+{% for item in buses %}
+<center>
+<div class="busesList">
+<script>
+
+    var temp = "{{ item.source }}";
+    var temp1 = "{{ item.destination }}";
+
+    var tableCode = "";
+    tableCode += "<tr>";
+    tableCode += "<td>&nbsp;&nbsp; &nbsp;&nbsp;{{ item.name }}&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+    tableCode += "<td> {{ item.source }}&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+    tableCode += "<td> {{ item.destination }} &nbsp;&nbsp;&nbsp;&nbsp;</td>";
+    tableCode += "<td> &#8377; {{ item.fare }}&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+    tableCode += "<td><button onclick= 'bookTicket()' class='button green'>Book!</button>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><br><br><br><br>";
+
+    if(temp == from && temp1 == to) {
+       document.write(tableCode);
+       ++counter;
+    }
+
+</script>
+    </div>
+</center>
+{% endfor %}
+<center><div class="busesList">
+<script>
+if(counter == 0){
+document.write("Search returned no results.");
+}
+</script>
+</div>
+</center>
+
+
+<center>
+<br><br>
+<button onclick="gotoBooking()">Search Again</button>
+</center>
+<script>
+   function gotoBooking() {
+   window.location.href = '../login_user/';
+   }
+   function bookTicket() {
+   alert("Your Ticket is booked successfully!");
+   }
+</script>
+    {% endblock %}

@@ -123,7 +123,7 @@ switch(ans){
   today.setSeconds(0);
   if (Date.parse(today) >= Date.parse(selectedDate)) {
     toastr.info('No Buses on the selected day!');
-    document.getElementById("datepicker").value = "";
+    document.getElementById("datepicker").value = "--";
   }
 });
 });
@@ -146,7 +146,9 @@ switch(ans){
         toastr.info('Fill in all the fields');
         }
         else {
-            window.location.href = '../bus_info/';
+        var queryString = "?para1=" + from + "&para1=" + to;
+
+            window.location.href = '../bus_info/' + queryString;
 
         }
         }
