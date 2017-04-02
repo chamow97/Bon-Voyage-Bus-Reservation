@@ -8,6 +8,3 @@ class Bus(models.Model):
     destination = models.CharField(max_length=100)
     capacity = models.IntegerField()
     fare = models.FloatField()
-
-
-

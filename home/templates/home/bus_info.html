@@ -1,0 +1,24 @@
+{% extends 'home/booking.html' %}
+{% block bookingactive %}
+class="activePage"
+{% endblock %}
+{% block title %}
+Booking
+{% endblock %}
+
+{% block headinglink %}../../home {% endblock %}
+{% block homelink %}'../../home' {% endblock %}
+{% block aboutlink %}'../about' {% endblock %}
+{% block bookinglink %}'../login_user' {% endblock %}
+{% block logoutlink %}'../logout_user' {% endblock %}
+{% block bus_info %}
+
+<script>
+</script>
+{% for item in buses %}
+{% if item.source  == "Pune" %}
+<p>{{ item.source }}</p>
+{% endif %}
+{% endfor %}
+
+{% endblock %}

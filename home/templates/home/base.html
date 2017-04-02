@@ -6,22 +6,26 @@
         <link rel="icon" href="{% static 'home/bus_logo.png' %}">
 
     </head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'home/home.css' %}">
     <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
     <link rel="stylesheet" href="{% static 'home/common.css' %}">
     <link rel="stylesheet" href="{% static 'home/register.css' %}">
     <link rel="stylesheet" href="{% static 'home/about.css' %}">
+    <link rel="stylesheet" href="{% static 'home/booking.css' %}">
     <link rel="stylesheet" href="{% static 'home/toastr.css' %}">
+
 
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Griffy" rel="stylesheet">
-    <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'home/home.js' %}" > </script>
      <script type="text/javascript" src="{% static 'home/toastr.js' %}" > </script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
     <script type="text/javascript" src="{% static 'home/about.js' %}" > </script>
     <script type="text/javascript" src="{% static 'home/maps.js' %}" > </script>
@@ -69,16 +73,7 @@
         <br />
             <br /></div>
             <div id="content">
-        {% if request.user.is_authenticated %}
 
-            <script id="toast">
-
-            $(document).ready(function() {
-             toastr.info('Welcome {{ user.username }} !!');
-         });
-
-            </script>
-                {% endif %}
                 {% block content %}
 
 

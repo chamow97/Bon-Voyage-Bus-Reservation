@@ -5,6 +5,13 @@
 }
 .credentialFont {
     color: #ffffff;
-    
-    
+}
+#bookingtext {
+    font-family: 'Pacifico', cursive;
+    color: #090a3d;
+    font-size: 25px;
+}
+.bookingstyles {
+   font-family: "Spinnaker", sans-serif;
+   font-size: 18px;
 }

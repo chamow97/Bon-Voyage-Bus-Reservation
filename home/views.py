@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic import View
 from .forms import UserForm
 from django.core.mail import send_mail
+from .models import Bus
 
 
 def index(request):
@@ -18,7 +19,6 @@ def about(request):
 
 def booking(request):
     return render(request, 'home/booking.html')
-
 
 class UserFormView(View):
     form_class = UserForm
@@ -74,6 +74,10 @@ def logout_user(request):
             "form": form,
         }
         return render(request, 'home/user_login.html', context)
+
+
+def bus_info(request):
+    return render_to_response('home/bus_info.html', {'buses':Bus.objects.all()})
 
 
 

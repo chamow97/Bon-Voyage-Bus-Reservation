@@ -22,36 +22,148 @@ Booking
          <br>
                         <br>
                         <br>
+{% if request.user.is_authenticated %}
+
+            <script id="toast">
+            $(document).ready(function() {
+             toastr.info('Welcome {{ user.username }} !!');
+         });
+
+            </script>
+                {% endif %}
+{% block bus_info %}
+
+<div id="bookingInfo">
 <center>
-<div class="block form-group">
-  <label for="select">Select</label>
-  <select id="select">
-    <option selected>Chennai</option>
+    <div id="bookingtext">Plan the best trip of your life!!</div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<div style="display: inline;"; class="bookingstyles" class="block form-group">
+  <label class="bookingstyles" style="display:inline;"; for="selectfrom">From: </label>
+  <select style="display:inline;"; id="selectfrom">
+    <option selected id="none">--</option>
+      <option >Chennai</option>
     <option>Bangalore</option>
     <option>Pune</option>
     <option>Mumbai</option>
   </select>
 </div>
-<br>
-<br>
-<div class="block form-group">
-  <label for="select">Select</label>
-  <select id="select">
-    <option selected>Chennai</option>
-    <option>Bangalore</option>
-    <option>Pune</option>
-   <option>Mumbai</option>
+<script>
+$(document).ready(function(){
+
+    $("#selectfrom").change(function(){
+    $("#bangalore").show();
+$("#chennai").show();
+$("#pune").show();
+$("#mumbai").show();
+$("#selectto")
+    var ans = document.getElementById("selectfrom").value;
+
+switch(ans){
+    case "Bangalore":
+        if(document.getElementById("selectto").value == "Bangalore") {
+            document.getElementById("selectto").value = "Pune";
+        }
+        $("#bangalore").hide();
+        break;
+        case "Chennai":
+        if(document.getElementById("selectto").value == "Chennai") {
+            document.getElementById("selectto").value = "Bangalore";
+        }
+        $("#chennai").hide();
+        break;
+        case "Pune":
+        if(document.getElementById("selectto").value == "Pune") {
+            document.getElementById("selectto").value = "Mumbai";
+        }
+        $("#pune").hide();
+        break;
+        case "Mumbai":
+        if(document.getElementById("selectto").value == "Mumbai") {
+            document.getElementById("selectto").value = "Chennai";
+        }
+        $("#mumbai").hide();
+        break;
+}
+    });
+    });
+</script>
+<div style="display: inline;"; class="bookingstyles" class="block form-group">
+  <label for="selectto">&nbsp; &nbsp; &nbsp; &nbsp;To: &nbsp;&nbsp;&nbsp;</label>
+  <select id="selectto">
+
+     <option id="chennai" >Chennai</option>
+    <option id="bangalore" selected>Bangalore</option>
+    <option id="pune">Pune</option>
+   <option id="mumbai">Mumbai</option>
   </select>
 </div>
-     <br>
-<br>
-     <form>
-  Journey Date:
-  <input type="date" name="bday">
+
+     <form style="display: inline;"; class="bookingstyles">
+  &nbsp; &nbsp; &nbsp; &nbsp;Journey Date:
+         <div style="display: inline;"; id="dates">
+  <input type="text" id="datepicker" value="--" > <script>
+       $(document).ready(function(){ $("#datepicker").datepicker({ defaultDate : new Date() }); });
+    </script>
+             </div>
 </form>
-    <button id="submit">
+
+    <script>
+        $(document).ready(function(){
+
+    $('#datepicker').change(function() {
+  var selectedDate = $('#datepicker').datepicker('getDate');
+  var today = new Date();
+  var newtoday = new Date();
+  today.setHours(0);
+  today.setMinutes(0);
+  today.setSeconds(0);
+  if (Date.parse(today) >= Date.parse(selectedDate)) {
+    toastr.info('No Buses on the selected day!');
+    document.getElementById("datepicker").value = "";
+  }
+});
+});
+
+    </script>
+    <br>
+    <br><br><br><br><br>
 
 
-    </button>
+
+
+    <button onclick = "checkFunction()" id="submit">Search Buses</button>
+    <script>
+        function checkFunction(){
+        var from = document.getElementById("selectfrom").value;
+
+        var to = document.getElementById("selectto").value;
+        var current_date = document.getElementById("datepicker").value;
+        if(from == "--" || current_date == "--"){
+        toastr.info('Fill in all the fields');
+        }
+        else {
+            window.location.href = '../bus_info/';
+
+        }
+        }
+    </script>
 </center>
+    </div>
+
+
+    {% endblock %}
+<br> <br>
+<br> <br>
+<br> <br>
+
+<br> <br>
+<br> <br>
+<br> <br>
+<br> <br>
+<br> <br>
+<br> <br>
 {% endblock %}
