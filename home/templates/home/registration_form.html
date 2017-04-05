@@ -33,7 +33,7 @@
 
 
 
-                        <p><strong>{{ error_message }}</strong></p>
+                        <p><strong><script>toastr.info('{{ error_message }}');</script></strong></p>
 
                         {% endif %}
                     <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
@@ -44,7 +44,8 @@
                         {% for field in form %}
                         <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                        <span id="errormsg" class="text-danger large">{{ field.errors }}</span>
+                            <script>if('{{ field.errors }}' != '')
+                           { toastr.info('{{ field.errors }}');}</script>
                             </div>
                             <label class="control-label col-sm-2" style="color: #000000; display: inline;" ><div id="fields" style="color: #000000; display: inline;">{{ field.label_tag }}</div>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,6 +60,9 @@
                                 <br><br>
                                 <button type="submit" class="btn btn-success">Submit</button>
                                 <br><br><br>
+                                 <div style="color: #000000";>Already have an account? Click <a href="login_user/">here</a> to login.</div>
+                                <br><br><br>
+
                             </div>
                         </div>
                     </form>
@@ -67,7 +71,7 @@
                      </div>
             </div>
         </div></div>
-            </center>
+           </center>
     </div>
 
 

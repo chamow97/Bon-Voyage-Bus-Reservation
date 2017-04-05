@@ -28,7 +28,7 @@
                         <br>
                         <br>
                     {% if error_message %}
-                        <p><strong>{{ error_message }}</strong></p>
+                        <p><strong><script>toastr.info('{{ error_message }}');</script></strong></p>
                     {% endif %}
                     <form class="form-horizontal" role="form" action="{% url 'home:login_user'%}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
