@@ -45,10 +45,10 @@ Booking
   <label class="bookingstyles" style="display:inline;"; for="selectfrom">From: </label>
   <select style="display:inline;"; id="selectfrom">
     <option selected id="none">--</option>
-      <option >Chennai</option>
-    <option>Bangalore</option>
-    <option>Pune</option>
-    <option>Mumbai</option>
+      <option id="chennaifrom">Chennai</option>
+    <option id="bangalorefrom">Bangalore</option>
+    <option id="punefrom">Pune</option>
+    <option id="mumbaifrom">Mumbai</option>
   </select>
 </div>
 <script>
@@ -59,44 +59,65 @@ $(document).ready(function(){
 $("#chennai").show();
 $("#pune").show();
 $("#mumbai").show();
-$("#selectto")
     var ans = document.getElementById("selectfrom").value;
 
 switch(ans){
     case "Bangalore":
-        if(document.getElementById("selectto").value == "Bangalore") {
-            document.getElementById("selectto").value = "Pune";
-        }
+
         $("#bangalore").hide();
         break;
         case "Chennai":
-        if(document.getElementById("selectto").value == "Chennai") {
-            document.getElementById("selectto").value = "Bangalore";
-        }
+
         $("#chennai").hide();
         break;
         case "Pune":
-        if(document.getElementById("selectto").value == "Pune") {
-            document.getElementById("selectto").value = "Mumbai";
-        }
+
         $("#pune").hide();
         break;
         case "Mumbai":
-        if(document.getElementById("selectto").value == "Mumbai") {
-            document.getElementById("selectto").value = "Chennai";
-        }
+
         $("#mumbai").hide();
         break;
 }
     });
     });
+$(document).ready(function(){
+
+    $("#selectto").change(function(){
+    $("#bangalorefrom").show();
+$("#chennaifrom").show();
+$("#punefrom").show();
+$("#mumbaifrom").show();
+    var ans = document.getElementById("selectto").value;
+
+switch(ans){
+    case "Bangalore":
+
+        $("#bangalorefrom").hide();
+        break;
+        case "Chennai":
+
+        $("#chennaifrom").hide();
+        break;
+        case "Pune":
+
+        $("#punefrom").hide();
+        break;
+        case "Mumbai":
+
+        $("#mumbaifrom").hide();
+        break;
+}
+    });
+    });
+
 </script>
 <div style="display: inline;"; class="bookingstyles" class="block form-group">
   <label for="selectto">&nbsp; &nbsp; &nbsp; &nbsp;To: &nbsp;&nbsp;&nbsp;</label>
   <select id="selectto">
-
+        <option selected id="none">--</option>
      <option id="chennai" >Chennai</option>
-    <option id="bangalore" selected>Bangalore</option>
+    <option id="bangalore">Bangalore</option>
     <option id="pune">Pune</option>
    <option id="mumbai">Mumbai</option>
   </select>
@@ -142,7 +163,7 @@ switch(ans){
 
         var to = document.getElementById("selectto").value;
         var current_date = document.getElementById("datepicker").value;
-        if(from == "--" || current_date == "--"){
+        if(from == "--" || current_date == "--" || to == "--"){
         toastr.info('Fill in all the fields');
         }
         else {
