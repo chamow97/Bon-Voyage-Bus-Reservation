@@ -44,5 +44,5 @@
 <li>Show route map of a bus.</li>
 </ul>
 <br>
-<p>Thank you for using this application. For any queries contact me at : chamow97@hotmail.com. </p>
+<p>Thank you for using this application. For any queries contact me at : mowlijc@gmail.com</p>
 
